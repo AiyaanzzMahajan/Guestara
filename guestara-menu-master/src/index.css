@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 45 30% 97%;
+    --foreground: 30 10% 15%;
+
+    --card: 40 25% 95%;
+    --card-foreground: 30 10% 15%;
+
+    --popover: 45 30% 97%;
+    --popover-foreground: 30 10% 15%;
+
+    --primary: 28 80% 52%;
+    --primary-foreground: 45 30% 97%;
+
+    --secondary: 180 8% 46%;
+    --secondary-foreground: 45 30% 97%;
+
+    --muted: 40 15% 90%;
+    --muted-foreground: 30 8% 45%;
+
+    --accent: 160 40% 45%;
+    --accent-foreground: 45 30% 97%;
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 45 30% 97%;
+
+    --border: 35 20% 85%;
+    --input: 35 20% 85%;
+    --ring: 28 80% 52%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 40 25% 95%;
+    --sidebar-foreground: 30 10% 15%;
+    --sidebar-primary: 28 80% 52%;
+    --sidebar-primary-foreground: 45 30% 97%;
+    --sidebar-accent: 40 15% 90%;
+    --sidebar-accent-foreground: 30 10% 15%;
+    --sidebar-border: 35 20% 85%;
+    --sidebar-ring: 28 80% 52%;
+
+    /* Custom tokens */
+    --warm-cream: 45 35% 94%;
+    --clay: 28 45% 35%;
+    --sage: 150 20% 55%;
+    --terracotta: 15 60% 55%;
+    --espresso: 25 30% 20%;
+    --oat: 40 30% 88%;
+  }
+
+  .dark {
+    --background: 25 20% 10%;
+    --foreground: 40 20% 90%;
+
+    --card: 25 18% 14%;
+    --card-foreground: 40 20% 90%;
+
+    --popover: 25 20% 10%;
+    --popover-foreground: 40 20% 90%;
+
+    --primary: 28 75% 55%;
+    --primary-foreground: 25 20% 10%;
+
+    --secondary: 180 6% 40%;
+    --secondary-foreground: 40 20% 90%;
+
+    --muted: 25 15% 20%;
+    --muted-foreground: 40 15% 60%;
+
+    --accent: 160 35% 40%;
+    --accent-foreground: 40 20% 90%;
+
+    --destructive: 0 60% 45%;
+    --destructive-foreground: 40 20% 90%;
+
+    --border: 25 15% 25%;
+    --input: 25 15% 25%;
+    --ring: 28 75% 55%;
+
+    --sidebar-background: 25 18% 14%;
+    --sidebar-foreground: 40 20% 90%;
+    --sidebar-primary: 28 75% 55%;
+    --sidebar-primary-foreground: 25 20% 10%;
+    --sidebar-accent: 25 15% 20%;
+    --sidebar-accent-foreground: 40 20% 90%;
+    --sidebar-border: 25 15% 25%;
+    --sidebar-ring: 28 75% 55%;
+
+    --warm-cream: 25 18% 16%;
+    --clay: 28 40% 50%;
+    --sage: 150 18% 45%;
+    --terracotta: 15 55% 50%;
+    --espresso: 25 25% 75%;
+    --oat: 25 15% 22%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+  }
+}
+
+@layer components {
+  .card-handcrafted {
+    @apply bg-card rounded-2xl border border-border/50;
+    box-shadow: 
+      0 1px 2px hsl(var(--foreground) / 0.02),
+      0 4px 8px hsl(var(--foreground) / 0.03),
+      0 8px 24px hsl(var(--foreground) / 0.04);
+  }
+
+  .card-handcrafted:hover {
+    box-shadow: 
+      0 2px 4px hsl(var(--foreground) / 0.03),
+      0 8px 16px hsl(var(--foreground) / 0.05),
+      0 16px 32px hsl(var(--foreground) / 0.06);
+  }
+
+  .badge-organic {
+    @apply inline-flex items-center px-2.5 py-1 text-xs font-medium rounded-full;
+    background: hsl(var(--oat));
+    color: hsl(var(--clay));
+  }
+
+  .badge-bestseller {
+    background: linear-gradient(135deg, hsl(var(--terracotta)), hsl(var(--primary)));
+    @apply text-primary-foreground;
+  }
+
+  .badge-fresh {
+    background: hsl(var(--sage) / 0.2);
+    color: hsl(var(--sage));
+  }
+
+  .input-warm {
+    @apply bg-background border-2 border-transparent rounded-xl px-4 py-3;
+    @apply focus:border-primary/40 focus:outline-none;
+    @apply transition-all duration-200;
+  }
+
+  .btn-primary-warm {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-xl;
+    @apply bg-primary text-primary-foreground font-medium;
+    @apply hover:opacity-90 active:scale-[0.98];
+    @apply transition-all duration-150;
+  }
+
+  .btn-ghost-warm {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-xl;
+    @apply text-muted-foreground hover:text-foreground hover:bg-muted/50;
+    @apply transition-all duration-150;
+  }
+
+  .text-gradient-warm {
+    background: linear-gradient(135deg, hsl(var(--foreground)), hsl(var(--clay)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .divider-organic {
+    @apply w-full h-px;
+    background: linear-gradient(90deg, transparent, hsl(var(--border)), transparent);
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.5s ease-out forwards;
+  }
+
+  .animate-fade-up-delay-1 {
+    animation: fadeUp 0.5s ease-out 0.1s forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-up-delay-2 {
+    animation: fadeUp 0.5s ease-out 0.2s forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-up-delay-3 {
+    animation: fadeUp 0.5s ease-out 0.3s forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hover-lift {
+    @apply transition-transform duration-300;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+  }
+}
